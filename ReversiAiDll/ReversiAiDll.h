@@ -20,4 +20,7 @@ extern "C"
 
 	// 着手可能な手のビットボード表現を返す
 	__declspec(dllexport) unsigned long long possible_moves(unsigned long long dark, unsigned long long light, int player);
+
+	// 特定のプレイヤーがある地点に打ったときに返せる石のビットボード表現を返す
+	__declspec(dllexport) unsigned long long turnovers(unsigned long long dark, unsigned long long light, int player, int index);
 }
