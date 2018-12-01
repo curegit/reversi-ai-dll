@@ -46,7 +46,7 @@ namespace ReversiAiDllTest
 		}
 
 		// 着手可能な手を調べるテスト
-		TEST_METHOD(PossibleMoveTestMethod)
+		TEST_METHOD(PossibleMoveTest)
 		{
 			// 黒が置く
 			Assert::AreEqual(possible_moves(0x0000'0010'0800'0000ull, 0x0000'0008'1000'0000ull, const_dark()), 0x0000'0804'2010'0000ull);
@@ -64,7 +64,7 @@ namespace ReversiAiDllTest
 		}
 
 		// ネガマックス法のテスト
-		TEST_METHOD(NegaMaxTestMethod)
+		TEST_METHOD(NegaMaxTest)
 		{
 
 		}
