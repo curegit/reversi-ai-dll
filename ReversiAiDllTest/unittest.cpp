@@ -50,8 +50,22 @@ namespace ReversiAiDllTest
 		{
 			// 黒が置く
 			Assert::AreEqual(possible_moves(0x0000'0010'0800'0000ull, 0x0000'0008'1000'0000ull, const_dark()), 0x0000'0804'2010'0000ull);
+			Assert::AreEqual(possible_moves(0x0000'003C'0010'0000ull, 0x0000'0800'3C48'0000ull, const_dark()), 0x001C'0040'0026'8C00ull);
+			Assert::AreEqual(possible_moves(0x0000'0038'0412'0000ull, 0x0000'0A04'3848'0000ull, const_dark()), 0x000D'0442'4024'9C00ull);
+			Assert::AreEqual(possible_moves(0x0000'101E'1402'0000ull, 0x0000'2A20'2878'0000ull, const_dark()), 0x005F'4440'4004'FC00ull);
+			Assert::AreEqual(possible_moves(0x0000'1018'0006'0000ull, 0x0000'2A26'3E78'0000ull, const_dark()), 0x004E'4441'4080'D800ull);
+			Assert::AreEqual(possible_moves(0x0042'3408'2020'2800ull, 0x0000'0A76'1E5E'1200ull, const_dark()), 0x000D'8181'C181'851Bull);
+			Assert::AreEqual(possible_moves(0x0046'7C78'6000'0000ull, 0x0000'0206'1E7E'7E10ull, const_dark()), 0x0000'0101'0101'81EFull);
+			Assert::AreEqual(possible_moves(0x0046'CE0D'2643'F300ull, 0x0090'3172'D83C'0C14ull, const_dark()), 0xB021'0080'0100'000Aull);
 			// 白が置く
 			Assert::AreEqual(possible_moves(0x0000'0010'1810'0000ull, 0x0000'0008'0000'0000ull, const_light()), 0x0000'0020'0028'0000ull);
+			Assert::AreEqual(possible_moves(0x0000'0010'3008'0400ull, 0x0000'0008'0830'0000ull, const_light()), 0x0000'3060'4004'0800ull);
+			Assert::AreEqual(possible_moves(0x0000'0012'0418'1C00ull, 0x0000'0008'7822'0000ull, const_light()), 0x0000'3820'0204'201Eull);
+			Assert::AreEqual(possible_moves(0x0000'101E'1C06'0000ull, 0x0000'2A20'2078'0000ull, const_light()), 0x0018'0501'0201'0200ull);
+			Assert::AreEqual(possible_moves(0x0040'3018'0006'0000ull, 0x0000'0A26'3E78'0000ull, const_light()), 0x8038'4400'0001'0F00ull);
+			Assert::AreEqual(possible_moves(0x0046'7E7F'6000'0000ull, 0x0000'0000'1E7E'7E10ull, const_light()), 0xC7B9'8180'8000'0000ull);
+			Assert::AreEqual(possible_moves(0x0046'7E7D'2442'FF00ull, 0x0000'0102'DA3C'0010ull, const_light()), 0xC7B9'8080'0181'00EFull);
+			Assert::AreEqual(possible_moves(0x80C6'CE0D'2E4B'FD08ull, 0x0010'3172'D034'0215ull, const_light()), 0x4709'0000'0180'00E2ull);
 		}
 
 		// 返せる石を調べるテスト
