@@ -93,6 +93,12 @@ namespace ReversiAiDllTest
 			Assert::AreEqual(turnovers(0x767E'5B1F'4F17'3300ull, 0x8180'A4E0'B0E8'CCFFull, const_dark(), position_to_index(3, 7)), 0x0000'0000'0000'0000ull);
 			Assert::AreEqual(turnovers(0x0066'5317'4717'3300ull, 0xFF98'ACE8'B8E8'CCFFull, const_dark(), position_to_index(0, 6)), 0x0000'0000'0000'0000ull);
 			Assert::AreEqual(turnovers(0x0014'7E00'5E6E'7C00ull, 0x8181'81FF'A191'0004ull, const_dark(), position_to_index(3, 6)), 0x0000'0000'0000'0000ull);
+			// 黒がすでに石で埋まっている位置に置く
+			Assert::AreEqual(turnovers(0x487E'4260'4854'7040ull, 0x8781'BD9F'B7AB'8FBFull, const_dark(), position_to_index(0, 0)), 0x0000'0000'0000'023Eull);
+			Assert::AreEqual(turnovers(0x0066'5317'4717'3300ull, 0xFF98'ACE8'B8E8'CCFFull, const_dark(), position_to_index(4, 3)), 0x0000'0428'2800'0000ull);
+			// 黒が1つも返せない且つすでに石で埋まっている位置に置く
+			Assert::AreEqual(turnovers(0x767E'5B1F'4F17'3300ull, 0x8180'A4E0'B0E8'CCFFull, const_dark(), position_to_index(2, 5)), 0x0000'0000'0000'0000ull);
+			Assert::AreEqual(turnovers(0x0014'7E00'5E6E'7C00ull, 0x8181'81FF'A191'0004ull, const_dark(), position_to_index(6, 1)), 0x0000'0000'0000'0000ull);
 			// 白が置く
 			Assert::AreEqual(turnovers(0x0000'0010'1810'0000ull, 0x0000'0008'0000'0000ull, const_light(), position_to_index(5, 2)), 0x0000'0000'1000'0000ull);
 			Assert::AreEqual(turnovers(0x0000'0010'3008'0400ull, 0x0000'0008'0830'0000ull, const_light(), position_to_index(5, 4)), 0x0000'0010'2000'0000ull);
@@ -107,6 +113,12 @@ namespace ReversiAiDllTest
 			Assert::AreEqual(turnovers(0x0D09'0D0D'0301'0101ull, 0x1236'3232'FC3E'0000ull, const_light(), position_to_index(6, 1)), 0x0000'0000'0000'0000ull);
 			Assert::AreEqual(turnovers(0xFF19'0D0D'0101'0101ull, 0x0026'3232'FE3E'0202ull, const_light(), position_to_index(2, 0)), 0x0000'0000'0000'0000ull);
 			Assert::AreEqual(turnovers(0xFFB9'B98B'B3B3'8F8Full, 0x0046'4674'4C4C'7050ull, const_light(), position_to_index(5, 0)), 0x0000'0000'0000'0000ull);
+			// 白がすでに石で埋まっている位置に置く
+			Assert::AreEqual(turnovers(0x0000'01B9'3D3D'21FDull, 0x0000'7E46'4242'DE02ull, const_light(), position_to_index(4, 3)), 0x0000'0038'2C38'0000ull);
+			Assert::AreEqual(turnovers(0xFF19'0D0D'0101'0101ull, 0x0026'3232'FE3E'0202ull, const_light(), position_to_index(3, 7)), 0x0018'0808'0000'0000ull);
+			// 白が1つも返せない且つすでに石で埋まっている位置に置く
+			Assert::AreEqual(turnovers(0x0D09'0D0D'0301'0101ull, 0x1236'3232'FC3E'0000ull, const_light(), position_to_index(5, 2)), 0x0000'0000'0000'0000ull);
+			Assert::AreEqual(turnovers(0xFFB9'B98B'B3B3'8F8Full, 0x0046'4674'4C4C'7050ull, const_light(), position_to_index(7, 0)), 0x0000'0000'0000'0000ull);
 		}
 
 		// ネガマックス法のテスト
