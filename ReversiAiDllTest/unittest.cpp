@@ -143,8 +143,11 @@ namespace ReversiAiDllTest
 		// 盤更新のテスト
 		TEST_METHOD(BoardUpdateTest)
 		{
+			// 黒が打つ
+			Assert::AreEqual(place_dark_ex(0x00F8'C687'E7AB'C0E4ull, 0xFE04'3878'1854'3A18ull, const_dark(), position_to_index(0, 0)), 0x00F8'E697'EFAF'C2E5ull);
+			Assert::AreEqual(place_light_ex(0x00F8'C687'E7AB'C0E4ull, 0xFE04'3878'1854'3A18ull, const_dark(), position_to_index(0, 0)), 0xFE04'1868'1050'3818ull);
+			// 白が打つ
 			Assert::AreEqual(place_dark_ex(0xBCFD'F7EF'D3BB'9F8Cull, 0x4000'0810'2C44'6073ull, const_light(), position_to_index(0, 7)), 0xBCFC'F6EE'D2BA'9E8Cull);
-
 			Assert::AreEqual(place_light_ex(0xBCFD'F7EF'D3BB'9F8Cull, 0x4000'0810'2C44'6073ull, const_light(), position_to_index(0, 7)), 0x4101'0911'2D45'6173ull);
 		}
 
@@ -152,6 +155,8 @@ namespace ReversiAiDllTest
 		TEST_METHOD(FullSearchTest)
 		{
 			Assert::AreEqual(full_search(0xBCFD'F7EF'D3BB'9F8Cull, 0x4000'0810'2C44'6073ull, const_light(), 0), position_to_index(0, 7));
+
+			Assert::AreEqual(full_search(0x00F8'C687'E7AF'C0E4ull, 0xFE04'3878'1850'3818ull, const_light(), 0), position_to_index(1, 1));
 		}
 	};
 }
