@@ -45,6 +45,17 @@ namespace ReversiAiDllTest
 			Assert::AreEqual(index_to_position_j(63), 7);
 		}
 
+		// 立っているビットの数を数えるテスト
+		TEST_METHOD(BitCountTest)
+		{
+			Assert::AreEqual(count_bits_ex(0x0000'0000'0000'0000ull), 0);
+			Assert::AreEqual(count_bits_ex(0x0000'0000'0000'0001ull), 1);
+			Assert::AreEqual(count_bits_ex(0x1000'0000'0000'0000ull), 1);
+			Assert::AreEqual(count_bits_ex(0x0A00'C0D0'1E00'0430ull), 14);
+			Assert::AreEqual(count_bits_ex(0x3004'0500'00BD'7008ull), 15);
+			Assert::AreEqual(count_bits_ex(0x0123'4567'89AB'CDEFull), 32);
+		}
+
 		// 着手可能な手を調べるテスト
 		TEST_METHOD(PossibleMoveTest)
 		{
@@ -129,10 +140,18 @@ namespace ReversiAiDllTest
 			Assert::AreEqual(turnovers(0xFFB9'B98B'B3B3'8F8Full, 0x0046'4674'4C4C'7050ull, const_light(), position_to_index(7, 0)), 0x0000'0000'0000'0000ull);
 		}
 
-		// ネガマックス法のテスト
-		TEST_METHOD(NegaMaxTest)
+		// 盤更新のテスト
+		TEST_METHOD(BoardUpdateTest)
 		{
+			Assert::AreEqual(place_dark_ex(0xBCFD'F7EF'D3BB'9F8Cull, 0x4000'0810'2C44'6073ull, const_light(), position_to_index(0, 7)), 0xBCFC'F6EE'D2BA'9E8Cull);
 
+			Assert::AreEqual(place_light_ex(0xBCFD'F7EF'D3BB'9F8Cull, 0x4000'0810'2C44'6073ull, const_light(), position_to_index(0, 7)), 0x4101'0911'2D45'6173ull);
+		}
+
+		// 完全探索のテスト
+		TEST_METHOD(FullSearchTest)
+		{
+			Assert::AreEqual(full_search(0xBCFD'F7EF'D3BB'9F8Cull, 0x4000'0810'2C44'6073ull, const_light(), 0), position_to_index(0, 7));
 		}
 	};
 }
