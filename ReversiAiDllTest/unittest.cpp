@@ -158,5 +158,11 @@ namespace ReversiAiDllTest
 			Assert::AreEqual(position_to_index(1, 6), full_search(0x0010'6341'6D29'0721ull, 0xBCAC'9CBE'92D6'381Eull, 0));
 		}
 
+		// 希望的観測な全探索のテスト
+		TEST_METHOD(WishfulFullSearchTest)
+		{
+			//Assert::AreEqual(position_to_index(6, 7), full_search(0x3C38'2610'0000'067Full, 0x03C5'D9EF'FFFF'F980ull, 1));
+		}
+
 	};
 }
