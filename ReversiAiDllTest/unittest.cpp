@@ -59,7 +59,7 @@ namespace ReversiAiDllTest
 		// 着手可能な手を調べるテスト
 		TEST_METHOD(PossibleMoveTest)
 		{
-			// 黒が置く
+			// 普通に置けるとき
 			Assert::AreEqual(0x0000'0804'2010'0000ull, possible_moves(0x0000'0010'0800'0000ull, 0x0000'0008'1000'0000ull));
 			Assert::AreEqual(0x001C'0040'0026'8C00ull, possible_moves(0x0000'003C'0010'0000ull, 0x0000'0800'3C48'0000ull));
 			Assert::AreEqual(0x000D'0442'4024'9C00ull, possible_moves(0x0000'0038'0412'0000ull, 0x0000'0A04'3848'0000ull));
@@ -67,16 +67,7 @@ namespace ReversiAiDllTest
 			Assert::AreEqual(0x004E'4441'4080'D800ull, possible_moves(0x0000'1018'0006'0000ull, 0x0000'2A26'3E78'0000ull));
 			Assert::AreEqual(0x000D'8181'C181'851Bull, possible_moves(0x0042'3408'2020'2800ull, 0x0000'0A76'1E5E'1200ull));
 			Assert::AreEqual(0x0000'0101'0101'81EFull, possible_moves(0x0046'7C78'6000'0000ull, 0x0000'0206'1E7E'7E10ull));
-			Assert::AreEqual(0xB021'0080'0100'000Aull, possible_moves(0x0046'CE0D'2643'F300ull, 0x0090'3172'D83C'0C14ull));
-			// 黒の番だがどこにも置けないとき
-			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x487E'4260'4854'7040ull, 0x8781'BD9F'B7AB'8FBFull));
-			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x767E'5B1F'4F17'3300ull, 0x8180'A4E0'B0E8'CCFFull));
-			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x0066'5317'4717'3300ull, 0xFF98'ACE8'B8E8'CCFFull));
-			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x0014'7E00'5E6E'7C00ull, 0x8181'81FF'A191'0004ull));
-			// 盤が埋まっているが黒の番として調べたとき
-			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x80FE'CEA2'D2FA'C2BFull, 0x7F01'315D'2D05'3D40ull));
-			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x009F'0264'5010'7800ull, 0xFF60'FD9B'AFEF'87FFull));
-			// 白が置く      
+			Assert::AreEqual(0xB021'0080'0100'000Aull, possible_moves(0x0046'CE0D'2643'F300ull, 0x0090'3172'D83C'0C14ull));    
 			Assert::AreEqual(0x0000'0020'0028'0000ull, possible_moves(0x0000'0008'0000'0000ull, 0x0000'0010'1810'0000ull));
 			Assert::AreEqual(0x0000'3060'4004'0800ull, possible_moves(0x0000'0008'0830'0000ull, 0x0000'0010'3008'0400ull));
 			Assert::AreEqual(0x0000'3820'0204'201Eull, possible_moves(0x0000'0008'7822'0000ull, 0x0000'0012'0418'1C00ull));
@@ -85,12 +76,18 @@ namespace ReversiAiDllTest
 			Assert::AreEqual(0xC7B9'8180'8000'0000ull, possible_moves(0x0000'0000'1E7E'7E10ull, 0x0046'7E7F'6000'0000ull));
 			Assert::AreEqual(0xC7B9'8080'0181'00EFull, possible_moves(0x0000'0102'DA3C'0010ull, 0x0046'7E7D'2442'FF00ull));
 			Assert::AreEqual(0x4709'0000'0180'00E2ull, possible_moves(0x0010'3172'D034'0215ull, 0x80C6'CE0D'2E4B'FD08ull));
-			// 白の番だがどこにも置けないとき
+			// パスが発生するとき（どこにも置けないとき）
 			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x0000'7E46'4242'DE02ull, 0x0000'01B9'3D3D'21FDull));
 			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x1236'3232'FC3E'0000ull, 0x0D09'0D0D'0301'0101ull));
 			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x0026'3232'FE3E'0202ull, 0xFF19'0D0D'0101'0101ull));
 			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x0046'4674'4C4C'7050ull, 0xFFB9'B98B'B3B3'8F8Full));
-			// 盤が埋まっているが白の番として調べたとき
+			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x487E'4260'4854'7040ull, 0x8781'BD9F'B7AB'8FBFull));
+			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x767E'5B1F'4F17'3300ull, 0x8180'A4E0'B0E8'CCFFull));
+			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x0066'5317'4717'3300ull, 0xFF98'ACE8'B8E8'CCFFull));
+			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x0014'7E00'5E6E'7C00ull, 0x8181'81FF'A191'0004ull));
+			// 盤が埋まっているとき
+			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x80FE'CEA2'D2FA'C2BFull, 0x7F01'315D'2D05'3D40ull));
+			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x009F'0264'5010'7800ull, 0xFF60'FD9B'AFEF'87FFull));
 			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0x7F01'315D'2D05'3D40ull, 0x80FE'CEA2'D2FA'C2BFull));
 			Assert::AreEqual(0x0000'0000'0000'0000ull, possible_moves(0xFF60'FD9B'AFEF'87FFull, 0x009F'0264'5010'7800ull));
 		}
@@ -98,7 +95,7 @@ namespace ReversiAiDllTest
 		// 返せる石を調べるテスト
 		TEST_METHOD(TurnoverTest)
 		{
-			// 黒が置く
+			// 普通に置くとき
 			Assert::AreEqual(0x0000'0000'1000'0000ull, turnovers(0x0000'0010'0800'0000ull, 0x0000'0008'1000'0000ull, position_to_index(5, 3)));
 			Assert::AreEqual(0x0000'0000'0C08'0000ull, turnovers(0x0000'003C'0010'0000ull, 0x0000'0800'3C48'0000ull, position_to_index(2, 2)));
 			Assert::AreEqual(0x0000'0004'0000'0000ull, turnovers(0x0000'0038'0412'0000ull, 0x0000'0A04'3848'0000ull, position_to_index(2, 5)));
@@ -107,18 +104,6 @@ namespace ReversiAiDllTest
 			Assert::AreEqual(0x0000'0006'0204'0000ull, turnovers(0x0042'3408'2020'2800ull, 0x0000'0A76'1E5E'1200ull, position_to_index(0, 4)));
 			Assert::AreEqual(0x0000'0000'0804'0200ull, turnovers(0x0046'7C78'6000'0000ull, 0x0000'0206'1E7E'7E10ull, position_to_index(0, 0)));
 			Assert::AreEqual(0x0000'0070'4020'0000ull, turnovers(0x0046'CE0D'2643'F300ull, 0x0090'3172'D83C'0C14ull, position_to_index(7, 4)));
-			// 黒が1つも返せない位置に置く
-			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x487E'4260'4854'7040ull, 0x8781'BD9F'B7AB'8FBFull, position_to_index(5, 7)));
-			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x767E'5B1F'4F17'3300ull, 0x8180'A4E0'B0E8'CCFFull, position_to_index(3, 7)));
-			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x0066'5317'4717'3300ull, 0xFF98'ACE8'B8E8'CCFFull, position_to_index(0, 6)));
-			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x0014'7E00'5E6E'7C00ull, 0x8181'81FF'A191'0004ull, position_to_index(3, 6)));
-			// 黒がすでに石で埋まっている位置に置く
-			Assert::AreEqual(0x0000'0000'0000'023Eull, turnovers(0x487E'4260'4854'7040ull, 0x8781'BD9F'B7AB'8FBFull, position_to_index(0, 0)));
-			Assert::AreEqual(0x0000'0428'2800'0000ull, turnovers(0x0066'5317'4717'3300ull, 0xFF98'ACE8'B8E8'CCFFull, position_to_index(4, 3)));
-			// 黒が1つも返せない且つすでに石で埋まっている位置に置く
-			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x767E'5B1F'4F17'3300ull, 0x8180'A4E0'B0E8'CCFFull, position_to_index(2, 5)));
-			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x0014'7E00'5E6E'7C00ull, 0x8181'81FF'A191'0004ull, position_to_index(6, 1)));
-			// 白が置く      
 			Assert::AreEqual(0x0000'0000'1000'0000ull, turnovers(0x0000'0008'0000'0000ull, 0x0000'0010'1810'0000ull, position_to_index(5, 2)));
 			Assert::AreEqual(0x0000'0010'2000'0000ull, turnovers(0x0000'0008'0830'0000ull, 0x0000'0010'3008'0400ull, position_to_index(5, 4)));
 			Assert::AreEqual(0x0000'0000'0018'0000ull, turnovers(0x0000'0008'7822'0000ull, 0x0000'0012'0418'1C00ull, position_to_index(2, 2)));
@@ -127,15 +112,23 @@ namespace ReversiAiDllTest
 			Assert::AreEqual(0x0006'0A12'2000'0000ull, turnovers(0x0000'0000'1E7E'7E10ull, 0x0046'7E7F'6000'0000ull, position_to_index(1, 7)));
 			Assert::AreEqual(0x0000'7E40'2000'0000ull, turnovers(0x0000'0102'DA3C'0010ull, 0x0046'7E7D'2442'FF00ull, position_to_index(7, 5)));
 			Assert::AreEqual(0x0000'0001'0E01'0100ull, turnovers(0x0010'3172'D034'0215ull, 0x80C6'CE0D'2E4B'FD08ull, position_to_index(0, 3)));
-			// 白が1つも返せない位置に置く
+			// 1つも返せない位置に置くとき（本来は置けない位置に置く）
+			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x487E'4260'4854'7040ull, 0x8781'BD9F'B7AB'8FBFull, position_to_index(5, 7)));
+			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x767E'5B1F'4F17'3300ull, 0x8180'A4E0'B0E8'CCFFull, position_to_index(3, 7)));
+			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x0066'5317'4717'3300ull, 0xFF98'ACE8'B8E8'CCFFull, position_to_index(0, 6)));
+			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x0014'7E00'5E6E'7C00ull, 0x8181'81FF'A191'0004ull, position_to_index(3, 6)));
 			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x0000'7E46'4242'DE02ull, 0x0000'01B9'3D3D'21FDull, position_to_index(0, 7)));
 			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x1236'3232'FC3E'0000ull, 0x0D09'0D0D'0301'0101ull, position_to_index(6, 1)));
 			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x0026'3232'FE3E'0202ull, 0xFF19'0D0D'0101'0101ull, position_to_index(2, 0)));
 			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x0046'4674'4C4C'7050ull, 0xFFB9'B98B'B3B3'8F8Full, position_to_index(5, 0)));
-			// 白がすでに石で埋まっている位置に置く
+			// すでに石で埋まっている位置に置くとき（本来は置けない位置に置く）
+			Assert::AreEqual(0x0000'0000'0000'023Eull, turnovers(0x487E'4260'4854'7040ull, 0x8781'BD9F'B7AB'8FBFull, position_to_index(0, 0)));
+			Assert::AreEqual(0x0000'0428'2800'0000ull, turnovers(0x0066'5317'4717'3300ull, 0xFF98'ACE8'B8E8'CCFFull, position_to_index(4, 3)));
 			Assert::AreEqual(0x0000'0038'2C38'0000ull, turnovers(0x0000'7E46'4242'DE02ull, 0x0000'01B9'3D3D'21FDull, position_to_index(4, 3)));
 			Assert::AreEqual(0x0018'0808'0000'0000ull, turnovers(0x0026'3232'FE3E'0202ull, 0xFF19'0D0D'0101'0101ull, position_to_index(3, 7)));
-			// 白が1つも返せない且つすでに石で埋まっている位置に置く
+			// 1つも返せない且つすでに石で埋まっている位置に置く（本来は置けない位置に置く）
+			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x767E'5B1F'4F17'3300ull, 0x8180'A4E0'B0E8'CCFFull, position_to_index(2, 5)));
+			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x0014'7E00'5E6E'7C00ull, 0x8181'81FF'A191'0004ull, position_to_index(6, 1)));
 			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x1236'3232'FC3E'0000ull, 0x0D09'0D0D'0301'0101ull, position_to_index(5, 2)));
 			Assert::AreEqual(0x0000'0000'0000'0000ull, turnovers(0x0046'4674'4C4C'7050ull, 0xFFB9'B98B'B3B3'8F8Full, position_to_index(7, 0)));
 		}
