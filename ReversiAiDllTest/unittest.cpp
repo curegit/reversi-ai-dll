@@ -157,6 +157,13 @@ namespace ReversiAiDllTest
 			Assert::AreEqual(100, sum_of_weights(0x0000'0010'0800'0000ull));
 		}
 
+		// 開放度計算のテスト
+		TEST_METHOD(OpennessTest)
+		{
+			Assert::AreEqual(2, openness(0x0000'0008'0828'0000ull, 0x0000'0010'3010'1000ull, 0x0000'0000'0010'0000ull));
+			Assert::AreEqual(5, openness(0x0000'0008'0828'0000ull, 0x0000'0010'3010'1000ull, 0x0000'0000'3000'0000ull));
+		}
+
 		// 完全探索のテスト
 		TEST_METHOD(FullSearchTest)
 		{

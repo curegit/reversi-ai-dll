@@ -30,6 +30,9 @@ extern "C"
 	// 有利なほど大きいように盤上の位置ごとにつけられた重みを用いて、石のある位置の重みの和を返す
 	__declspec(dllexport) int sum_of_weights(unsigned long long disks);
 
+	// turns周りの開放度を返す
+	__declspec(dllexport) int openness(unsigned long long self, unsigned long long opponent, unsigned long long turns);
+
 	// ミニマックス戦略に基づいてゲーム木の完全探索をし、最良の手のビット番号を返す
 	// 打つ手がない場合は -1 を返す
 	// wishful を真にしておくと、互いに完璧に打てば負けてしまう場合は相手のミスに賭けるような選択をするようになる
