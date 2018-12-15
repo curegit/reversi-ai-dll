@@ -27,6 +27,9 @@ extern "C"
 	// selfプレイヤーがindex地点に打ったときに得られる盤を間接参照によって代入し、返した石のビットボード表現を返す
 	__declspec(dllexport) unsigned long long place(unsigned long long self, unsigned long long opponent, int index, unsigned long long *nself, unsigned long long *nopponent);
 
+	// 有利なほど大きいように盤上の位置ごとにつけられた重みを用いて、石のある位置の重みの和を返す
+	__declspec(dllexport) int sum_of_weights(unsigned long long disks);
+
 	// ミニマックス戦略に基づいてゲーム木の完全探索をし、最良の手のビット番号を返す
 	// 打つ手がない場合は -1 を返す
 	// wishful を真にしておくと、互いに完璧に打てば負けてしまう場合は相手のミスに賭けるような選択をするようになる

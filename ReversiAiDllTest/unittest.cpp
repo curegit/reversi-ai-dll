@@ -149,6 +149,14 @@ namespace ReversiAiDllTest
 			Assert::AreEqual(0x0001'0101'0101'0100ull, turns);
 		}
 
+		// 静的評価用の重みのテスト
+		TEST_METHOD(WeightTest)
+		{
+			Assert::AreEqual(0, sum_of_weights(0x0000'0000'0000'0000ull));
+			Assert::AreEqual(20000, sum_of_weights(0x8000'0000'0000'0001ull));
+			Assert::AreEqual(100, sum_of_weights(0x0000'0010'0800'0000ull));
+		}
+
 		// 完全探索のテスト
 		TEST_METHOD(FullSearchTest)
 		{
