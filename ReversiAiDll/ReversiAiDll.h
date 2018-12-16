@@ -42,4 +42,10 @@ extern "C"
 	// 打つ手がない場合は -1 を返す
 	// depth は先読みの深さで、1以上である必要があり奇数が望ましい
 	__declspec(dllexport) int heuristic_search(unsigned long long self, unsigned long long opponent, int depth);
+
+	// ミニマックス戦略に基づいてゲーム木の探索をし、最良と思われる手のビット番号を返す
+	// 打つ手がない場合は -1 を返す
+	// ゲームの進行度によって部分探索と完全探索を自動で選択する
+	// 切り替えのタイミングと、先読みの深さは数秒で結果が返るような値に調整されている
+	__declspec(dllexport) int choose_move(unsigned long self, unsigned long opponent);
 }

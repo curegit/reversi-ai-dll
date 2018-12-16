@@ -176,6 +176,7 @@ namespace ReversiAiDllTest
 		// 希望的観測な全探索のテスト
 		TEST_METHOD(WishfulFullSearchTest)
 		{
+			// TODO : テストケースの追加
 			//Assert::AreEqual(position_to_index(6, 7), full_search(0x3C38'2610'0000'067Full, 0x03C5'D9EF'FFFF'F980ull, 1));
 		}
 
