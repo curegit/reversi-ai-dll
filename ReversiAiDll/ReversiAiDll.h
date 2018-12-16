@@ -37,4 +37,9 @@ extern "C"
 	// 打つ手がない場合は -1 を返す
 	// wishful を真にしておくと、互いに完璧に打てば負けてしまう場合は相手のミスに賭けるような選択をするようになる
 	__declspec(dllexport) int full_search(unsigned long long self, unsigned long long opponent, int wishful);
+
+	// ミニマックス戦略に基づいてゲーム木の部分探索をし、最良と思われる手のビット番号を返す
+	// 打つ手がない場合は -1 を返す
+	// depth は先読みの深さで、1以上である必要があり奇数が望ましい
+	__declspec(dllexport) int heuristic_search(unsigned long long self, unsigned long long opponent, int depth);
 }

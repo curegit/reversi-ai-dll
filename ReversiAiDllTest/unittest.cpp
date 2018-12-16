@@ -179,5 +179,10 @@ namespace ReversiAiDllTest
 			//Assert::AreEqual(position_to_index(6, 7), full_search(0x3C38'2610'0000'067Full, 0x03C5'D9EF'FFFF'F980ull, 1));
 		}
 
+		// •”•ª’Tõ‚ÌƒeƒXƒg
+		TEST_METHOD(HeuristicSearchTest)
+		{
+			Assert::AreEqual(position_to_index(4, 0), heuristic_search(0x0000'0000'0010'0804ull, 0x0000'1038'7E6C'3020ull, 9));
+		}
 	};
 }
