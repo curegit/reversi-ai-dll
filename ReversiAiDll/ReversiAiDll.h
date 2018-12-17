@@ -47,5 +47,5 @@ extern "C"
 	// 打つ手がない場合は -1 を返す
 	// ゲームの進行度によって部分探索と完全探索を自動で選択する
 	// 切り替えのタイミングと、先読みの深さは数秒で結果が返るような値に調整されている
-	__declspec(dllexport) int choose_move(unsigned long self, unsigned long opponent);
+	__declspec(dllexport) int choose_move(unsigned long long self, unsigned long long opponent);
 }
