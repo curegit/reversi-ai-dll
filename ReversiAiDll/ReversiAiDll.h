@@ -21,6 +21,9 @@ extern "C"
 	// selfプレイヤーが着手可能な手のビットボード表現を返す
 	__declspec(dllexport) unsigned long long possible_moves(unsigned long long self, unsigned long long opponent);
 
+	// selfプレイヤーがindex地点に打てるかどうかを返す
+	__declspec(dllexport) int can_place(unsigned long long self, unsigned long long opponent, int index);
+
 	// selfプレイヤーがindex地点に打ったときに返せる石のビットボード表現を返す
 	__declspec(dllexport) unsigned long long turnovers(unsigned long long self, unsigned long long opponent, int index);
 
