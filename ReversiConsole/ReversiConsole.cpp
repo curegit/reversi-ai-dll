@@ -63,15 +63,72 @@ int char_to_j(char c)
 	}
 }
 
+// 
+char i_to_char(int i)
+{
+	switch (i)
+	{
+	case 0:
+		return 'h';
+	case 1:
+		return 'g';
+	case 2:
+		return 'f';
+	case 3:
+		return 'e';
+	case 4:
+		return 'd';
+	case 5:
+		return 'c';
+	case 6:
+		return 'b';
+	case 7:
+		return 'a';
+	}
+}
+
+// 
+char j_to_char(int j)
+{
+	switch (j)
+	{
+	case 0:
+		return '8';
+	case 1:
+		return '7';
+	case 2:
+		return '6';
+	case 3:
+		return '5';
+	case 4:
+		return '4';
+	case 5:
+		return '3';
+	case 6:
+		return '2';
+	case 7:
+		return '1';
+	}
+}
+
+//
+char* index_to_str(int index)
+{
+	char str[3];
+	str[0] = i_to_char(index_to_position_i(index));
+	str[1] = j_to_char(index_to_position_j(index));
+	str[2] = '\0';
+	return str;
+}
+
 //
 int prompt_move()
 {
+	cout << "Your move >> ";
 	char buffer[256];
 	cin >> buffer;
-	
 	int i = char_to_i(buffer[0]);
 	int j = char_to_j(buffer[1]);
-
 	if (i != -1 && j != -1)
 	{
 		return position_to_index(i, j);
@@ -82,7 +139,14 @@ int prompt_move()
 	}
 }
 
-
+// 
+int prompt_ai(unsigned long long self, unsigned long long opponent)
+{
+	cout << "AI move >> ";
+	int m = choose_move(self, opponent);
+	cout << index_to_str(m) << "\n";
+	return m;
+}
 
 // 
 void print_board(unsigned long long player1, unsigned long long player2)
@@ -111,6 +175,15 @@ int is_not_end(unsigned long long player1, unsigned long long player2)
 	return possible_moves(player1, player2) || possible_moves(player2, player1);
 }
 
+// 
+void swap(unsigned long long** player1, unsigned long long** player2)
+{
+	unsigned long long* siding = *player1;
+	*player1 = *player2;
+	*player2 = siding;
+}
+
+// エントリー
 int main(const int argc, const char *argv[])
 {
 	int ai = 0;
@@ -121,7 +194,6 @@ int main(const int argc, const char *argv[])
 	while (is_not_end(*self, *opponent))
 	{
 		print_board(dark, light);
-
 		if (possible_moves(*self, *opponent))
 		{
 			int pos;
@@ -129,7 +201,7 @@ int main(const int argc, const char *argv[])
 			{
 				if (ai)
 				{
-					pos = choose_move(*self, *opponent);
+					pos = prompt_ai(*self, *opponent);
 				}
 				else
 				{
@@ -137,11 +209,11 @@ int main(const int argc, const char *argv[])
 				}
 				if (pos == -1)
 				{
-					cout << "syntax\n";
+					cout << "Syntax error. Please try again.\n";
 				}
 				else if (!can_place(*self, *opponent, pos))
 				{
-					cout << "wrong\n";
+					cout << "Invalid move.\n";
 				}
 				else
 				{
@@ -152,15 +224,20 @@ int main(const int argc, const char *argv[])
 		}
 		else
 		{
-			cout << "pass\n";
+			if (ai)
+			{
+				cout << "AI >> Pass\n";
+			}
+			else
+			{
+				cout << "You >> Pass\n";
+			}
 		}
-		unsigned long long* tmp = self;
-		self = opponent;
-		opponent = tmp;
+		swap(&self, &opponent);
 		ai = !ai;
 	}
-
-	cout << "end";
-
+	cout << "Game end\n";
+	print_board(dark, light);
+	cout << "x " << count_bits(dark) << " - " << count_bits(light) << " o\n";
 	return 0;
 }
