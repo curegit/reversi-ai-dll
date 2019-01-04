@@ -63,7 +63,7 @@ int char_to_j(char c)
 	}
 }
 
-// 
+// 列数から列数文字を返す（不正な数値に対してはヌル文字を返す）
 char i_to_char(int i)
 {
 	switch (i)
@@ -89,7 +89,7 @@ char i_to_char(int i)
 	}
 }
 
-// 
+// 行数から行数文字を返す（不正な数値に対してはヌル文字を返す）
 char j_to_char(int j)
 {
 	switch (j)
@@ -115,7 +115,7 @@ char j_to_char(int j)
 	}
 }
 
-//
+// 盤上の位置を表す文字列を返す
 char* index_to_str(int index)
 {
 	char str[3];
@@ -125,7 +125,7 @@ char* index_to_str(int index)
 	return str;
 }
 
-//
+// プレイヤーに入力を促す（置く場所がないときはこの関数を呼ばない）
 int prompt_move()
 {
 	cout << "Your move >> ";
@@ -143,7 +143,7 @@ int prompt_move()
 	}
 }
 
-// 
+// AIに入力を促す（置く場所がないときはこの関数を呼ばない）
 int prompt_ai(unsigned long long self, unsigned long long opponent)
 {
 	cout << "AI move >> ";
@@ -152,7 +152,7 @@ int prompt_ai(unsigned long long self, unsigned long long opponent)
 	return m;
 }
 
-// 
+// 盤の状態を標準出力で表示する
 void print_board(unsigned long long player1, unsigned long long player2)
 {
 	cout << "  | a b c d e f g h\n";
@@ -173,13 +173,13 @@ void print_board(unsigned long long player1, unsigned long long player2)
 	}
 }
 
-// 
+// 盤がゲーム終了状態でなければ真を返す
 int is_not_end(unsigned long long player1, unsigned long long player2)
 {
 	return possible_moves(player1, player2) || possible_moves(player2, player1);
 }
 
-// 
+// プレイヤーの番の入れ替え
 void swap(unsigned long long** player1, unsigned long long** player2)
 {
 	unsigned long long* siding = *player1;
