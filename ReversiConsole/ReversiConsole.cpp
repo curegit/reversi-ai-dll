@@ -191,6 +191,23 @@ void swap(unsigned long long** player1, unsigned long long** player2)
 int main(const int argc, const char *argv[])
 {
 	int ai = 0;
+	if (argc > 1)
+	{
+		string arg1 = string(argv[1]);
+		if (arg1 == "dark")
+		{
+			ai = 0;
+		}
+		else if (arg1 == "light")
+		{
+			ai = 1;
+		}
+		else
+		{
+			cout << "Usage: \n" << argv[0] << " <YOUR SIDE [dark|light] = dark>\n";
+			return 1;
+		}
+	}
 	unsigned long long dark = 0x0000'0008'1000'0000ull;
 	unsigned long long light = 0x0000'0010'0800'0000ull;
 	unsigned long long *self = &dark;
