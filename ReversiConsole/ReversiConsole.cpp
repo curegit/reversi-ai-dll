@@ -84,6 +84,8 @@ char i_to_char(int i)
 		return 'b';
 	case 7:
 		return 'a';
+	default:
+		return NULL;
 	}
 }
 
@@ -108,6 +110,8 @@ char j_to_char(int j)
 		return '2';
 	case 7:
 		return '1';
+	default:
+		return NULL;
 	}
 }
 
