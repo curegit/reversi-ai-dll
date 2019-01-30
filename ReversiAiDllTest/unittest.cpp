@@ -167,17 +167,10 @@ namespace ReversiAiDllTest
 		// 完全探索のテスト
 		TEST_METHOD(FullSearchTest)
 		{
-			Assert::AreEqual(position_to_index(0, 7), full_search(0x4000'0810'2C44'6073ull, 0xBCFD'F7EF'D3BB'9F8Cull, 0));
-			Assert::AreEqual(position_to_index(1, 1), full_search(0xFE04'3878'1850'3818ull, 0x00F8'C687'E7AF'C0E4ull, 0));
-			Assert::AreEqual(position_to_index(0, 7), full_search(0x8080'908F'B388'9C80ull, 0x7E7C'6F70'4C77'637Full, 0));
-			Assert::AreEqual(position_to_index(1, 6), full_search(0x0010'6341'6D29'0721ull, 0xBCAC'9CBE'92D6'381Eull, 0));
-		}
-
-		// 希望的観測な全探索のテスト
-		TEST_METHOD(WishfulFullSearchTest)
-		{
-			// TODO : テストケースの追加
-			//Assert::AreEqual(position_to_index(6, 7), full_search(0x3C38'2610'0000'067Full, 0x03C5'D9EF'FFFF'F980ull, 1));
+			Assert::AreEqual(position_to_index(0, 7), full_search(0x4000'0810'2C44'6073ull, 0xBCFD'F7EF'D3BB'9F8Cull));
+			Assert::AreEqual(position_to_index(1, 1), full_search(0xFE04'3878'1850'3818ull, 0x00F8'C687'E7AF'C0E4ull));
+			Assert::AreEqual(position_to_index(0, 7), full_search(0x8080'908F'B388'9C80ull, 0x7E7C'6F70'4C77'637Full));
+			Assert::AreEqual(position_to_index(1, 6), full_search(0x0010'6341'6D29'0721ull, 0xBCAC'9CBE'92D6'381Eull));
 		}
 
 		// 部分探索のテスト
