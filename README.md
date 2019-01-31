@@ -14,7 +14,8 @@ This solution includes a Windows console application to test the AI.
 
 `ReversiConsole.exe [dark|light]`
 
-Your side is dark by default.
+The positional argument is your side.
+That is dark by default.
 
 ![console reversi](Console.png)
 
@@ -26,14 +27,14 @@ Your side is dark by default.
 
 ### Sample code
 
-
+Import functions from the DLL.
 
 ```cs
 [DllImport("ReversiAiDll")]
 private static extern int heuristic_search(ulong a, ulong b, int d);
 
 [DllImport("ReversiAiDll")]
-private static extern int full_search(ulong a, ulong b, int w);
+private static extern int full_search(ulong a, ulong b);
 
 [DllImport("ReversiAiDll")]
 private static extern int position_to_index(int i, int j);
@@ -43,4 +44,10 @@ private static extern int index_to_position_i(int n);
 
 [DllImport("ReversiAiDll")]
 private static extern int index_to_position_j(int n);
+```
+
+Don't forget to add a using directive.
+
+```cs
+using System.Runtime.InteropServices;
 ```
