@@ -19,6 +19,15 @@ That is dark by default.
 
 ![console reversi](Console.png)
 
+## API
+
+### heuristic_search(ulong a, ulong b, int d)
+### full_search(ulong a, ulong b)
+### position_to_index(int i, int j)
+### index_to_position_i(int n)
+### index_to_position_j(int n)
+[See all (Header file)](ReversiAiDll/ReversiAiDll.h)
+
 ## Use with Unity
 
 1. Import DLL into Unity `Plugins` folder inside of `Assets`
