@@ -21,11 +21,27 @@ That is dark by default.
 
 ## API
 
-### heuristic_search(ulong a, ulong b, int d)
-### full_search(ulong a, ulong b)
-### position_to_index(int i, int j)
-### index_to_position_i(int n)
-### index_to_position_j(int n)
+### Bit Board
+
+Bit Board is expression of a reversi board.
+By Bit Board, a board state is expressed by a pair of 64-bit unsigned integer.
+They each have bit flags where each players' disks are placed.
+For example, an initial board of reversi is expressed like `0x0000_0008_1000_0000` and `0x0000_0010_0800_0000`.
+
+### Functions
+
+#### int full_search(unsigned long long self, unsigned long long opponent)
+
+#### int heuristic_search(unsigned long long self, unsigned long long opponent, int depth)
+
+#### int choose_move(unsigned long long self, unsigned long long opponent)
+
+#### int position_to_index(int i, int j)
+
+#### int index_to_position_i(int n)
+
+#### int index_to_position_j(int n)
+
 [See all (Header file)](ReversiAiDll/ReversiAiDll.h)
 
 ## Use with Unity
