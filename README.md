@@ -32,7 +32,13 @@ For example, an initial board of reversi is expressed like `0x0000_0008_1000_000
 
 #### int full_search(unsigned long long self, unsigned long long opponent)
 
+Returns the best move by doing full search.
+This can be used if the game is in its final stages.
+
 #### int heuristic_search(unsigned long long self, unsigned long long opponent, int depth)
+
+Returns a approximately good move by doing partial search.
+Search time depends on depth of recursion.
 
 #### int choose_move(unsigned long long self, unsigned long long opponent)
 
