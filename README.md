@@ -30,19 +30,19 @@ For example, an initial board of reversi is expressed like `0x0000_0008_1000_000
 
 ### Functions
 
-#### int full_search(unsigned long long self, unsigned long long opponent)
+#### `int full_search(unsigned long long self, unsigned long long opponent)`
 
 Returns the best move by doing full search.
 
 This can be used if the game is in its final stages.
 
-#### int heuristic_search(unsigned long long self, unsigned long long opponent, int depth)
+#### `int heuristic_search(unsigned long long self, unsigned long long opponent, int depth)`
 
 Returns a approximately good move by doing partial search.
 
 Search time depends on depth of recursion.
 
-#### int choose_move(unsigned long long self, unsigned long long opponent)
+#### `int choose_move(unsigned long long self, unsigned long long opponent)`
 
 Returns a move you should act.
 
@@ -50,11 +50,11 @@ This function is a wrapper of `full_search` and `heuristic_search`.
 It switches between them considering search time.
 Search time will be a few seconds.
 
-#### int position_to_index(int i, int j)
+#### `int position_to_index(int i, int j)`
 
-#### int index_to_position_i(int n)
+#### `int index_to_position_i(int n)`
 
-#### int index_to_position_j(int n)
+#### `int index_to_position_j(int n)`
 
 [See all (Header file)](ReversiAiDll/ReversiAiDll.h)
 
