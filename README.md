@@ -54,7 +54,7 @@ Search time depends on depth of recursion.
 
 #### `int choose_move(unsigned long long self, unsigned long long opponent)`
 
-Returns a move you should act.
+Returns a move that `self` player should act.
 
 This function is a wrapper of `full_search` and `heuristic_search`.
 It switches between them considering search time.
