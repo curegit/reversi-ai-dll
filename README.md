@@ -1,12 +1,13 @@
 # Reversi AI DLL
 
 This is heuristic reversi AI implemented as a Windows native DLL.
+
 The DLL has simple API.
-For instance, board state is given, a API function returns a move you should to choose next.
+For instance, a board state is given, an API function returns a move you should to choose next.
 The AI have moderate strength.
 The DLL can be used in Windows standalone projects of Unity.
 
-These are Visual Studio C++ projects.
+These are Visual C++ projects.
 
 ## Run a console application
 
