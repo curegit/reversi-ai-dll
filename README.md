@@ -1,10 +1,13 @@
 # Reversi AI DLL
 
-This is heuristic reversi AI implemented as a Windows native DLL.
+Heuristic reversi AI implemented as a Windows native DLL
 
-The DLL has simple API.
-For instance, a board state is given, an API function returns a move you should to choose next.
-The AI have moderate strength.
+## Features
+
+-
+-
+-
+
 The DLL can be used in Windows standalone projects of Unity.
 
 These are Visual C++ projects.
@@ -23,6 +26,10 @@ That is dark by default.
 ![console reversi](Console.png)
 
 ## API
+
+The DLL has simple API.
+For instance, a board state is given, an API function returns a move you should to choose next.
+The AI have moderate strength.
 
 ### Bit Board
 
