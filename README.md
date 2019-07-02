@@ -4,26 +4,8 @@ Heuristic reversi AI implemented as a Windows native DLL
 
 ## Features
 
--
--
--
-
-The DLL can be used in Windows standalone projects of Unity.
-
-These are Visual C++ projects.
-
-## Run a console application
-
-This solution includes a Windows console application to test the AI.
-
-### Usage
-
-`ReversiConsole.exe [dark|light]`
-
-The positional argument is your side.
-That is dark by default.
-
-![console reversi](Console.png)
+- Simple API
+- Call from C# easily
 
 ## API
 
@@ -126,3 +108,20 @@ Don't forget to add a using directive.
 ```cs
 using System.Runtime.InteropServices;
 ```
+
+## Console application
+
+This solution includes a Windows console application to test the AI.
+
+### Usage
+
+`ReversiConsole.exe [dark|light]`
+
+The positional argument is your side.
+That is dark by default.
+
+![console reversi](Console.png)
+
+# License
+
+[Apache License 2.0](LICENSE)
