@@ -5,13 +5,13 @@ Heuristic reversi AI implemented as a Windows native DLL
 ## Features
 
 - Simple API
-- Call from C# easily
+- Callable from C# easily
+- Moderate Strength
 
 ## API
 
 The DLL has simple API.
 For instance, a board state is given, an API function returns a move you should to choose next.
-The AI have moderate strength.
 
 ### Bit Board
 
