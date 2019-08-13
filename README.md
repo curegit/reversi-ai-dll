@@ -6,7 +6,15 @@ Heuristic reversi AI implemented as a Windows native DLL
 
 - Simple API
 - Callable from C# easily
-- Moderate Strength
+- Moderate AI Strength
+
+## Dependencies
+
+You may need Microsoft Visual C++ Redistributable.
+
+- VCRUNTIME140.dll
+- api-ms-win-crt-runtime-l1-1-0.dll
+- KERNEL32.dll
 
 ## API
 
