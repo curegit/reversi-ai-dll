@@ -1,27 +1,25 @@
 # Reversi AI DLL
 
-This is heuristic reversi AI implemented as a Windows native DLL.
-The DLL has simple API.
-For instance, board state is given, a API function returns a move you should to choose next.
-The AI have moderate strength.
-The DLL can be used in Windows standalone projects of Unity.
+Heuristic reversi AI implemented as a Windows native DLL
 
-These are Visual Studio C++ projects.
+## Features
 
-## Run a console application
+- Simple API
+- Callable from C# easily
+- Moderate AI Strength
 
-This solution includes a Windows console application to test the AI.
+## Dependencies
 
-### Usage
+You may need Microsoft Visual C++ Redistributable.
 
-`ReversiConsole.exe [dark|light]`
-
-The positional argument is your side.
-That is dark by default.
-
-![console reversi](Console.png)
+- VCRUNTIME140.dll
+- api-ms-win-crt-runtime-l1-1-0.dll
+- KERNEL32.dll
 
 ## API
+
+The DLL has simple API.
+For instance, a board state is given, an API function returns a move you should to choose next.
 
 ### Bit Board
 
@@ -118,3 +116,20 @@ Don't forget to add a using directive.
 ```cs
 using System.Runtime.InteropServices;
 ```
+
+## Console application
+
+This solution includes a Windows console application to test the AI.
+
+### Usage
+
+`ReversiConsole.exe [dark|light]`
+
+The positional argument is your side.
+That is dark by default.
+
+![console reversi](Console.png)
+
+# License
+
+[Apache License 2.0](LICENSE)
