@@ -125,23 +125,21 @@ using System.Runtime.InteropServices;
 ```
 
 Next, import external functions from the DLL.
-Declare static methods with the same names as the DLL functions.
-They must have `extern` modifiers and `DllImport("ReversiAiDll")` attributes.
+
+Define static methods with the `extern` modifier and `DllImport("ReversiAiDll")` attribute.
+Declare them with the same names as DLL functions, or indicate function names to be imported by `EntryPoint` parameter of `DllImport`.
 Make sure their type signatures match.
 It is not necessary to use the same parameter names.
 
 ```cs
 [DllImport("ReversiAiDll")]
-private static extern int heuristic_search(ulong self, ulong opponent, int depth);
-
-[DllImport("ReversiAiDll")]
-private static extern int full_search(ulong self, ulong opponent);
-
-[DllImport("ReversiAiDll")]
 private static extern int index_to_position_i(int n);
 
 [DllImport("ReversiAiDll")]
 private static extern int index_to_position_j(int n);
+
+[DllImport("ReversiAiDll", EntryPoint = "choose_move")]
+private static extern int ChooseMove(ulong self, ulong opponent);
 ```
 
 Now these functions are able to be called.
