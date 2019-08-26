@@ -6,6 +6,7 @@ Heuristic reversi AI implemented as a Windows native DLL
 
 - Simple API
 - Callable from C# easily
+- Multithread supported
 - Moderate AI Strength
 
 ## Dependencies
@@ -30,21 +31,6 @@ For example, an initial board of reversi is expressed like `0x0000_0008_1000_000
 
 ### Functions
 
-#### `int full_search(unsigned long long self, unsigned long long opponent)`
-
-Returns the best move that `self` player should do by doing full search.
-
-This can be used if the game is in its final stages.
-`self` and `opponent` are Bit Board.
-The returned value is a bit number expressing a disk position.
-The bit number is 0 to 63.
-
-#### `int full_search_parallel(unsigned long long self, unsigned long long opponent)`
-
-The multithreaded version of `full_search`.
-
-It's faster than the non-multithreaded version in most cases if the CPU is good enough for parallel calculation.
-
 #### `int heuristic_search(unsigned long long self, unsigned long long opponent, int depth)`
 
 Returns an approximately good move that `self` player should do by doing partial search.
@@ -62,11 +48,26 @@ The multithreaded version of `heuristic_search`.
 
 It's faster than the non-multithreaded version in most cases if the CPU is good enough for parallel calculation.
 
+#### `int full_search(unsigned long long self, unsigned long long opponent)`
+
+Returns the best move that `self` player should do by doing full search.
+
+This can be used if the game is in its final stages.
+`self` and `opponent` are Bit Board.
+The returned value is a bit number expressing a disk position.
+The bit number is 0 to 63.
+
+#### `int full_search_parallel(unsigned long long self, unsigned long long opponent)`
+
+The multithreaded version of `full_search`.
+
+It's faster than the non-multithreaded version in most cases if the CPU is good enough for parallel calculation.
+
 #### `int choose_move(unsigned long long self, unsigned long long opponent)`
 
 Returns a move that `self` player should act.
 
-This function is a wrapper of `full_search` and `heuristic_search`.
+This function is a wrapper of `heuristic_search` and `full_search`.
 It switches between them considering search time.
 `self` and `opponent` are Bit Board.
 The returned value is a bit number expressing a disk position.
@@ -106,25 +107,35 @@ Use this function for the conversion of a bit number as AI result into a disk po
 
 [See all functions (Header file)](ReversiAiDll/ReversiAiDll.h)
 
-## Use with Unity
+## Using with Unity
 
-1. Import DLL into Unity `Plugins` folder inside of `Assets`
-2. Configure platform settings in Inspector view
-3. Write codes that call DLL functions
+### Import the DLL
 
-### Sample code
+1. Copy each DLL of target architectures into an architecture-specified plugin folder inside of `Assets`
+  - Win32 DLL into `Plugins/x86`
+  - x64 DLL into `Plugins/x86_64`
+2. (Windows only) Configure platform settings of the DLLs in Inspector to enable them in Editor for debugging
 
-Import functions from the DLL.
+### Coding
+
+First, import `System.Runtime.InteropServices` namespace for calling DLL functions.
+
+```cs
+using System.Runtime.InteropServices;
+```
+
+Next, import external functions from the DLL.
+Declare static methods with the same names as the DLL functions.
+They must have `extern` modifiers and `DllImport("ReversiAiDll")` attributes.
+Make sure their type signatures match.
+It is not necessary to use the same parameter names.
 
 ```cs
 [DllImport("ReversiAiDll")]
-private static extern int heuristic_search(ulong a, ulong b, int d);
+private static extern int heuristic_search(ulong self, ulong opponent, int depth);
 
 [DllImport("ReversiAiDll")]
-private static extern int full_search(ulong a, ulong b);
-
-[DllImport("ReversiAiDll")]
-private static extern int position_to_index(int i, int j);
+private static extern int full_search(ulong self, ulong opponent);
 
 [DllImport("ReversiAiDll")]
 private static extern int index_to_position_i(int n);
@@ -133,25 +144,21 @@ private static extern int index_to_position_i(int n);
 private static extern int index_to_position_j(int n);
 ```
 
-Don't forget to add a using directive.
-
-```cs
-using System.Runtime.InteropServices;
-```
+Now these functions are able to be called.
 
 ## Console application
 
-This solution includes a Windows console application to test the AI.
+This solution includes a Windows console application to try the AI.
 
 ### Usage
 
 `ReversiConsole.exe [dark|light]`
 
 The positional argument is your side.
-That is dark by default.
+It is dark by default.
 
 ![console reversi](Console.png)
 
-# License
+## License
 
 [Apache License 2.0](LICENSE)
