@@ -36,7 +36,7 @@ Returns the best move that `self` player should do by doing full search.
 
 This can be used if the game is in its final stages.
 `self` and `opponent` are Bit Board.
-The returned value is a bit number expressing disk position.
+The returned value is a bit number expressing a disk position.
 The bit number is 0 to 63.
 
 #### `int full_search_parallel(unsigned long long self, unsigned long long opponent)`
@@ -52,7 +52,7 @@ Returns an approximately good move that `self` player should do by doing partial
 `self` and `opponent` are Bit Board.
 `depth` is anticipation steps same as depth of recursion.
 It must be positive.
-The returned value is a bit number expressing disk position.
+The returned value is a bit number expressing a disk position.
 The bit number is 0 to 63.
 Search time depends on depth of recursion.
 
@@ -69,11 +69,11 @@ Returns a move that `self` player should act.
 This function is a wrapper of `full_search` and `heuristic_search`.
 It switches between them considering search time.
 `self` and `opponent` are Bit Board.
-The returned value is a bit number expressing disk position.
+The returned value is a bit number expressing a disk position.
 The bit number is 0 to 63.
 Search time will be less than a few seconds usually.
 
-#### `int choose_move(unsigned long long self, unsigned long long opponent)`
+#### `int choose_move_parallel(unsigned long long self, unsigned long long opponent)`
 
 The multithreaded version of `choose_move`.
 
@@ -83,26 +83,28 @@ Use this multithreaded version instead to make AI stronger.
 
 #### `int position_to_index(int i, int j)`
 
-Returns a bit number from horizontal index and vertical index.
+Returns a bit number from a horizontal index and a vertical index.
 
 `i` and `j` are 0 to 7.
-The bit number is 0 to 63.
+The returned bit number is 0 to 63.
 
 #### `int index_to_position_i(int n)`
 
-Returns horizontal index from a bit number.
+Returns a horizontal index from a bit number.
 
 The bit number is 0 to 63.
-The index is 0 to 7.
+The returned index is 0 to 7.
+Use this function for the conversion of a bit number as AI result into a disk position.
 
 #### `int index_to_position_j(int n)`
 
-Returns vertical index from a bit number.
+Returns a vertical index from a bit number.
 
 The bit number is 0 to 63.
-The index is 0 to 7.
+The returned index is 0 to 7.
+Use this function for the conversion of a bit number as AI result into a disk position.
 
-[See all (Header file)](ReversiAiDll/ReversiAiDll.h)
+[See all functions (Header file)](ReversiAiDll/ReversiAiDll.h)
 
 ## Use with Unity
 
