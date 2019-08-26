@@ -138,11 +138,26 @@ private static extern int index_to_position_i(int n);
 [DllImport("ReversiAiDll")]
 private static extern int index_to_position_j(int n);
 
-[DllImport("ReversiAiDll", EntryPoint = "choose_move")]
+[DllImport("ReversiAiDll", EntryPoint = "choose_move_parallel")]
 private static extern int ChooseMove(ulong self, ulong opponent);
 ```
 
 Now these functions are able to be called.
+
+
+
+```cs
+// Prepare Bit Boards
+ulong self = player1.ToBitBoard();
+ulong opponent = player2.ToBitBoard();
+
+// Use AI
+int decision = ChooseMove(self, opponent);
+
+// Extract answers
+int i = index_to_position_i(decision);
+int j = index_to_position_j(decision);
+```
 
 ## Console application
 
