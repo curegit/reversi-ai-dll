@@ -118,10 +118,12 @@ Use this function for the conversion of a bit number as AI result into a disk po
 
 ### Import the DLL
 
-1. Copy each DLL of target architectures into an architecture-specified plugin folder inside of `Assets`
-  - Win32 DLL into `Plugins/x86`
-  - x64 DLL into `Plugins/x86_64`
-2. (Windows only) Configure platform settings of the DLLs in Inspector to enable them in Editor for debugging
+Copy each DLL of target architectures into an architecture-specified plugin folder inside of `Assets`.
+
+- Win32 DLL into `Plugins/x86`
+- x64 DLL into `Plugins/x86_64`
+
+Configure platform settings of the DLLs in Inspector to enable them in Editor for debugging (Windows only).
 
 ### Coding
 
@@ -145,13 +147,16 @@ private static extern int index_to_position_i(int n);
 [DllImport("ReversiAiDll")]
 private static extern int index_to_position_j(int n);
 
+[DllImport("ReversiAiDll")]
+private static extern ulong position_to_bit(int i, int j);
+
 [DllImport("ReversiAiDll", EntryPoint = "choose_move_parallel")]
 private static extern int ChooseMove(ulong self, ulong opponent);
 ```
 
 Now these functions are able to be called.
 
-
+Finally, write codes that call AI functions.
 
 ```cs
 // Prepare Bit Boards
@@ -165,6 +170,8 @@ int decision = ChooseMove(self, opponent);
 int i = index_to_position_i(decision);
 int j = index_to_position_j(decision);
 ```
+
+It takes a few seconds for AI to retrun an answer, so please consider using async methods.
 
 ## Console application
 
