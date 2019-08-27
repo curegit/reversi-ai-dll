@@ -89,6 +89,13 @@ Returns a bit number from a horizontal index and a vertical index.
 `i` and `j` are 0 to 7.
 The returned bit number is 0 to 63.
 
+#### `unsigned long long position_to_bit(int i, int j)`
+
+Returns a 64-bit unsigned integer having one bit flag at a given board position.
+
+`i` and `j` are 0 to 7.
+This function can be used to compose a Bit Board from other data types.
+
 #### `int index_to_position_i(int n)`
 
 Returns a horizontal index from a bit number.
