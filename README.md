@@ -33,7 +33,7 @@ For example, an initial board of reversi is expressed like `0x0000_0008_1000_000
 
 #### `int heuristic_search(unsigned long long self, unsigned long long opponent, int depth)`
 
-Returns an approximately good move that `self` player should do by doing partial search.
+Returns an approximately good move that `self` player should do next by doing partial search.
 
 `self` and `opponent` are Bit Board.
 `depth` is anticipation steps same as depth of recursion.
@@ -50,7 +50,7 @@ It's faster than the non-multithreaded version in most cases if the CPU is good 
 
 #### `int full_search(unsigned long long self, unsigned long long opponent)`
 
-Returns the best move that `self` player should do by doing full search.
+Returns the best move that `self` player should do next by doing full search.
 
 This can be used if the game is in its final stages.
 `self` and `opponent` are Bit Board.
@@ -65,7 +65,7 @@ It's faster than the non-multithreaded version in most cases if the CPU is good 
 
 #### `int choose_move(unsigned long long self, unsigned long long opponent)`
 
-Returns a move that `self` player should act.
+Returns a move that `self` player should do next.
 
 This function is a wrapper of `heuristic_search` and `full_search`.
 It switches between them considering search time.
@@ -84,7 +84,7 @@ Use this multithreaded version instead to make AI stronger.
 
 #### `int position_to_index(int i, int j)`
 
-Returns a bit number from a horizontal index and a vertical index.
+Returns a bit number from a horizontal position and a vertical position.
 
 `i` and `j` are 0 to 7.
 The returned bit number is 0 to 63.
@@ -98,7 +98,7 @@ This function can be used to compose a Bit Board from other data types.
 
 #### `int index_to_position_i(int n)`
 
-Returns a horizontal index from a bit number.
+Returns a horizontal position from a bit number.
 
 The bit number is 0 to 63.
 The returned index is 0 to 7.
@@ -106,7 +106,7 @@ Use this function for the conversion of a bit number as AI result into a disk po
 
 #### `int index_to_position_j(int n)`
 
-Returns a vertical index from a bit number.
+Returns a vertical position from a bit number.
 
 The bit number is 0 to 63.
 The returned index is 0 to 7.
@@ -159,16 +159,16 @@ Now these functions are able to be called.
 Finally, write codes that call AI functions.
 
 ```cs
-// Prepare Bit Boards
-ulong self = player1.ToBitBoard();
-ulong opponent = player2.ToBitBoard();
+// Prepare Bit Boards from collections of disk positions
+ulong self = darkPositions.Aggregate(0ul, (a, p) => a | position_to_bit(p.x, p.y));
+ulong opponent = lightPositions.Aggregate(0ul, (a, p) => a | position_to_bit(p.x, p.y));
 
-// Use AI
+// Use AI to decide the next move
 int decision = ChooseMove(self, opponent);
 
 // Extract answers
-int i = index_to_position_i(decision);
-int j = index_to_position_j(decision);
+int x = index_to_position_i(decision);
+int y = index_to_position_j(decision);
 ```
 
 It takes a few seconds for AI to return an answer, so please consider using asynchronous methods.
