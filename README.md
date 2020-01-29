@@ -52,7 +52,7 @@ It's faster than the non-multithreaded version in most cases if the CPU is good 
 
 #### `int heuristic_search_parallel_with(unsigned long long self, unsigned long long opponent, int depth, int concurrency)`
 
-Same as `heuristic_search_parallel`, but you can specify the number of threads.
+Same as `heuristic_search_parallel` except you can specify the number of threads.
 
 #### `int full_search(unsigned long long self, unsigned long long opponent)`
 
@@ -71,7 +71,7 @@ It's faster than the non-multithreaded version in most cases if the CPU is good 
 
 #### `int full_search_parallel_with(unsigned long long self, unsigned long long opponent, int concurrency)`
 
-Same as `full_search_parallel`, but you can specify the number of threads.
+Same as `full_search_parallel` except you can specify the number of threads.
 
 #### `int choose_move(unsigned long long self, unsigned long long opponent)`
 
@@ -94,7 +94,7 @@ Use this multithreaded version instead to make AI stronger.
 
 #### `int choose_move_parallel_with(unsigned long long self, unsigned long long opponent, int concurrency)`
 
-Same as `choose_move_parallel`, but you can specify the number of threads.
+Same as `choose_move_parallel` except you can specify the number of threads.
 
 #### `int position_to_index(int i, int j)`
 
