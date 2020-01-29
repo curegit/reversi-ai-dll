@@ -50,6 +50,10 @@ The multithreaded version of `heuristic_search`.
 
 It's faster than the non-multithreaded version in most cases if the CPU is good enough for parallel calculation.
 
+#### `int heuristic_search_parallel_with(unsigned long long self, unsigned long long opponent, int depth, int concurrency)`
+
+Same as `heuristic_search_parallel`, but you can specify the number of threads.
+
 #### `int full_search(unsigned long long self, unsigned long long opponent)`
 
 Returns the best move that `self` player should do next by doing full search.
@@ -64,6 +68,10 @@ The bit number is 0 to 63.
 The multithreaded version of `full_search`.
 
 It's faster than the non-multithreaded version in most cases if the CPU is good enough for parallel calculation.
+
+#### `int full_search_parallel_with(unsigned long long self, unsigned long long opponent, int concurrency)`
+
+Same as `full_search_parallel`, but you can specify the number of threads.
 
 #### `int choose_move(unsigned long long self, unsigned long long opponent)`
 
@@ -83,6 +91,10 @@ The multithreaded version of `choose_move`.
 Thanks to speeding up by parallel calculation, this function tries to search deeper than the non-multithreaded version.
 Moreover, it switches to full search earlier.
 Use this multithreaded version instead to make AI stronger.
+
+#### `int choose_move_parallel_with(unsigned long long self, unsigned long long opponent, int concurrency)`
+
+Same as `choose_move_parallel`, but you can specify the number of threads.
 
 #### `int position_to_index(int i, int j)`
 
