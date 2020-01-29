@@ -13,9 +13,11 @@ Heuristic reversi AI implemented as a Windows native DLL
 
 You may need Microsoft Visual C++ Redistributable.
 
-- VCRUNTIME140.dll
-- api-ms-win-crt-runtime-l1-1-0.dll
 - KERNEL32.dll
+- MSVCP140.dll
+- VCRUNTIME140.dll
+- api-ms-win-crt-heap-l1-1-0.dll
+- api-ms-win-crt-runtime-l1-1-0.dll
 
 ## API
 
