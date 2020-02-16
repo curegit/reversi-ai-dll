@@ -21,13 +21,13 @@ You may need Microsoft Visual C++ Redistributable.
 
 ## API
 
-The DLL has simple API.
-For instance, a board state is given, an API function returns a move you should to choose next.
+The DLL has a simple API.
+For instance, a board state is given, an API function returns a move you should choose next.
 
 ### Bit Board
 
 Bit Board is expression of a reversi board.
-By Bit Board, a board state is expressed by a pair of 64-bit unsigned integer.
+By Bit Board, a board state is expressed by a pair of 64-bit unsigned integers.
 They each have bit flags where each players' disks are placed.
 For example, an initial board of reversi is expressed like `0x0000_0008_1000_0000` and `0x0000_0010_0800_0000`.
 
@@ -35,14 +35,14 @@ For example, an initial board of reversi is expressed like `0x0000_0008_1000_000
 
 #### `int heuristic_search(unsigned long long self, unsigned long long opponent, int depth)`
 
-Returns an approximately good move that `self` player should do next by doing partial search.
+Returns an approximately good move that `self` player should do next by doing a partial search.
 
 `self` and `opponent` are Bit Board.
-`depth` is anticipation steps same as depth of recursion.
+`depth` is anticipation steps the same as the depth of recursion.
 It must be positive.
 The returned value is a bit number expressing a disk position.
 The bit number is 0 to 63.
-Search time depends on depth of recursion.
+Search time depends on the depth of recursion.
 
 #### `int heuristic_search_parallel(unsigned long long self, unsigned long long opponent, int depth)`
 
@@ -56,7 +56,7 @@ Same as `heuristic_search_parallel` except you can specify the number of threads
 
 #### `int full_search(unsigned long long self, unsigned long long opponent)`
 
-Returns the best move that `self` player should do next by doing full search.
+Returns the best move that `self` player should do next by doing a full search.
 
 This can be used if the game is in its final stages.
 `self` and `opponent` are Bit Board.
@@ -105,7 +105,7 @@ The returned bit number is 0 to 63.
 
 #### `unsigned long long position_to_bit(int i, int j)`
 
-Returns a 64-bit unsigned integer having one bit flag at a given board position.
+Returns a 64-bit unsigned integer having a one-bit flag at a given board position.
 
 `i` and `j` are 0 to 7.
 This function can be used to compose a Bit Board from other data types.
@@ -116,7 +116,7 @@ Returns a horizontal position from a bit number.
 
 The bit number is 0 to 63.
 The returned index is 0 to 7.
-Use this function for the conversion of a bit number as AI result into a disk position.
+Use this function for the conversion of a bit number as AI result, to a disk position.
 
 #### `int index_to_position_j(int n)`
 
@@ -124,7 +124,7 @@ Returns a vertical position from a bit number.
 
 The bit number is 0 to 63.
 The returned index is 0 to 7.
-Use this function for the conversion of a bit number as AI result into a disk position.
+Use this function for the conversion of a bit number as AI result, to a disk position.
 
 [See all functions (Header file)](ReversiAiDll/ReversiAiDll.h)
 
@@ -150,7 +150,7 @@ using System.Runtime.InteropServices;
 Next, import external functions from the DLL.
 
 Define static methods with the `extern` modifier and `DllImport("ReversiAiDll")` attribute.
-Declare them with the same names as DLL functions, or indicate function names to be imported by `EntryPoint` parameter of `DllImport`.
+Declare them with the same names as DLL functions, or indicate function names to be imported by the `EntryPoint` parameter of `DllImport`.
 Make sure their type signatures match.
 It is not necessary to use the same parameter names.
 
