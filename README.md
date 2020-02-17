@@ -33,7 +33,7 @@ For example, an initial board of reversi is expressed like `0x0000_0008_1000_000
 
 ### Functions
 
-#### `int heuristic_search(unsigned long long self, unsigned long long opponent, int depth)`
+#### int heuristic_search(unsigned long long self, unsigned long long opponent, int depth)
 
 Returns an approximately good move that `self` player should do next by doing a partial search.
 
@@ -44,17 +44,17 @@ The returned value is a bit number expressing a disk position.
 The bit number is 0 to 63.
 Search time depends on the depth of recursion.
 
-#### `int heuristic_search_parallel(unsigned long long self, unsigned long long opponent, int depth)`
+#### int heuristic_search_parallel(unsigned long long self, unsigned long long opponent, int depth)
 
 The multithreaded version of `heuristic_search`.
 
 It's faster than the non-multithreaded version in most cases if the CPU is good enough for parallel calculation.
 
-#### `int heuristic_search_parallel_with(unsigned long long self, unsigned long long opponent, int depth, int concurrency)`
+#### int heuristic_search_parallel_with(unsigned long long self, unsigned long long opponent, int depth, int concurrency)
 
 Same as `heuristic_search_parallel` except you can specify the number of threads.
 
-#### `int full_search(unsigned long long self, unsigned long long opponent)`
+#### int full_search(unsigned long long self, unsigned long long opponent)
 
 Returns the best move that `self` player should do next by doing a full search.
 
@@ -63,17 +63,17 @@ This can be used if the game is in its final stages.
 The returned value is a bit number expressing a disk position.
 The bit number is 0 to 63.
 
-#### `int full_search_parallel(unsigned long long self, unsigned long long opponent)`
+#### int full_search_parallel(unsigned long long self, unsigned long long opponent)
 
 The multithreaded version of `full_search`.
 
 It's faster than the non-multithreaded version in most cases if the CPU is good enough for parallel calculation.
 
-#### `int full_search_parallel_with(unsigned long long self, unsigned long long opponent, int concurrency)`
+#### int full_search_parallel_with(unsigned long long self, unsigned long long opponent, int concurrency)
 
 Same as `full_search_parallel` except you can specify the number of threads.
 
-#### `int choose_move(unsigned long long self, unsigned long long opponent)`
+#### int choose_move(unsigned long long self, unsigned long long opponent)
 
 Returns a move that `self` player should do next.
 
@@ -84,7 +84,7 @@ The returned value is a bit number expressing a disk position.
 The bit number is 0 to 63.
 Search time will be less than a few seconds usually.
 
-#### `int choose_move_parallel(unsigned long long self, unsigned long long opponent)`
+#### int choose_move_parallel(unsigned long long self, unsigned long long opponent)
 
 The multithreaded version of `choose_move`.
 
@@ -92,25 +92,25 @@ Thanks to speeding up by parallel calculation, this function tries to search dee
 Moreover, it switches to full search earlier.
 Use this multithreaded version instead to make AI stronger.
 
-#### `int choose_move_parallel_with(unsigned long long self, unsigned long long opponent, int concurrency)`
+#### int choose_move_parallel_with(unsigned long long self, unsigned long long opponent, int concurrency)
 
 Same as `choose_move_parallel` except you can specify the number of threads.
 
-#### `int position_to_index(int i, int j)`
+#### int position_to_index(int i, int j)
 
 Returns a bit number from a horizontal position and a vertical position.
 
 `i` and `j` are 0 to 7.
 The returned bit number is 0 to 63.
 
-#### `unsigned long long position_to_bit(int i, int j)`
+#### unsigned long long position_to_bit(int i, int j)
 
 Returns a 64-bit unsigned integer having a one-bit flag at a given board position.
 
 `i` and `j` are 0 to 7.
 This function can be used to compose a Bit Board from other data types.
 
-#### `int index_to_position_i(int n)`
+#### int index_to_position_i(int n)
 
 Returns a horizontal position from a bit number.
 
@@ -118,7 +118,7 @@ The bit number is 0 to 63.
 The returned index is 0 to 7.
 Use this function for the conversion of a bit number as AI result, to a disk position.
 
-#### `int index_to_position_j(int n)`
+#### int index_to_position_j(int n)
 
 Returns a vertical position from a bit number.
 
