@@ -185,7 +185,7 @@ int x = index_to_position_i(decision);
 int y = index_to_position_j(decision);
 ```
 
-It takes a few seconds for AI to return an answer, so please consider using asynchronous methods.
+It takes a few seconds for AI to return an answer, so please use asynchronous methods.
 
 ## Console Application
 
