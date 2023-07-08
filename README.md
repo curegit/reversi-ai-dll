@@ -21,8 +21,8 @@ You may need Microsoft Visual C++ Redistributable.
 
 ## API
 
-The DLL has a simple API.
-For instance, a board state is given, an API function returns a move you should choose next.
+The DLL has simple API.
+For instance, a board state is given, the API function returns a move you should choose next.
 
 ### Bit Board
 
@@ -128,7 +128,7 @@ Use this function for the conversion of a bit number as AI result, to a disk pos
 
 [See all functions (Header file)](ReversiAiDll/ReversiAiDll.h)
 
-## Using with Unity
+## Use with Unity
 
 ### Import the DLL
 
@@ -187,9 +187,9 @@ int y = index_to_position_j(decision);
 
 It takes a few seconds for AI to return an answer, so please consider using asynchronous methods.
 
-## Console application
+## Console Application
 
-This solution includes a Windows console application to try the AI.
+This solution includes a Windows console application to try on the AI.
 
 ### Usage
 
