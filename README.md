@@ -190,6 +190,12 @@ int y = index_to_position_j(decision);
 
 It takes a few seconds for AI to return an answer, so please use asynchronous methods.
 
+## Unity Application
+
+An illustrative Unity application is available on the release page.
+
+![Unity reversi](Unity.png)
+
 ## Console Application
 
 This solution also includes a Windows console application to try on the AI.
