@@ -194,7 +194,7 @@ It takes a few seconds for AI to return an answer, so please use asynchronous me
 
 ## Unity Application
 
-An illustrative Unity application is available on the release page.
+An illustrative Unity application (binary) is available on the release page.
 
 ![Unity reversi](Unity.png)
 
