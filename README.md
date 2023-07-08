@@ -5,6 +5,8 @@ Heuristic reversi AI implemented as a Windows native DLL
 This AI uses heuristic algorithms to determine the most effective move in any given scenario within a game of Reversi, also known as Othello.
 It is designed with efficiency, speed, and complexity in mind, capable of making intricate decisions based on the current state of the game board.
 
+A ported version of this project is also available in Rust: <https://github.com/curegit/reversi-ai>.
+
 ## Features
 
 - Simple API
@@ -208,10 +210,6 @@ The positional argument is your side.
 It is dark by default.
 
 ![console reversi](Console.png)
-
-## Ported Version
-
-A ported version of this project is now available in Rust: <https://github.com/curegit/reversi-ai>.
 
 ## License
 
