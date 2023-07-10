@@ -1,6 +1,6 @@
 # Reversi AI DLL
 
-Heuristic reversi AI implemented as a Windows native DLL
+Heuristic Reversi AI implemented as a Windows native DLL
 
 This AI uses heuristic algorithms to determine the most effective move in any given scenario within a game of Reversi, also known as Othello.
 It is designed with efficiency, speed, and complexity in mind, capable of making intricate decisions based on the current state of the game board.
@@ -31,10 +31,10 @@ For instance, a board state is given, the API function returns a move you should
 
 ### Bit Board
 
-Bit Board is expression of a reversi board.
+Bit Board is expression of a Reversi board.
 By Bit Board, a board state is expressed by a pair of 64-bit unsigned integers.
 They each have bit flags where each players' disks are placed.
-For example, an initial board of reversi is expressed like `0x0000_0008_1000_0000` and `0x0000_0010_0800_0000`.
+For example, an initial board of Reversi is expressed like `0x0000_0008_1000_0000` and `0x0000_0010_0800_0000`.
 
 ### Functions
 
@@ -196,7 +196,7 @@ It takes a few seconds for AI to return an answer, so please use asynchronous me
 
 An illustrative Unity application (binary) is available on the release page.
 
-![Unity reversi](Unity.png)
+![Unity Reversi](Unity.png)
 
 ## Console Application
 
@@ -209,7 +209,7 @@ This solution also includes a Windows console application to try on the AI.
 The positional argument is your side.
 It is dark by default.
 
-![console reversi](Console.png)
+![Console Reversi](Console.png)
 
 ## License
 
