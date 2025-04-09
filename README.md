@@ -194,7 +194,7 @@ It takes a few seconds for AI to return an answer, so please use asynchronous me
 
 ## Unity Application
 
-An illustrative Unity application (binary) is available on the release page.
+An illustrative Unity application (binary build) is available on [the release page](https://github.com/curegit/reversi-ai-dll/releases/latest).
 
 ![Unity Reversi](Unity.png)
 
