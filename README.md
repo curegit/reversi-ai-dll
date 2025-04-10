@@ -9,14 +9,14 @@ A ported version of this project is also available in Rust: <https://github.com/
 
 ## Features
 
-- Simple API
-- Callable from C# easily
+- Simple API using only primitive types for effortless FFI
+- Easily callable from C#, Python, etc.
 - Multithread supported
 - Moderate AI Strength
 
 ## Dependencies
 
-You may need Microsoft Visual C++ Redistributable.
+You may need Microsoft Visual C++ Redistributable to use `ReversiAiDll.dll`.
 
 - KERNEL32.dll
 - MSVCP140.dll
@@ -194,7 +194,7 @@ It takes a few seconds for AI to return an answer, so please use asynchronous me
 
 ## Unity Application
 
-An illustrative Unity application (binary) is available on the release page.
+An illustrative Unity application (binary build) is available on [the release page](https://github.com/curegit/reversi-ai-dll/releases/latest).
 
 ![Unity Reversi](Unity.png)
 
@@ -214,3 +214,5 @@ It is dark by default.
 ## License
 
 [Apache License 2.0](LICENSE)
+
+Copyright (C) 2025 curegit
