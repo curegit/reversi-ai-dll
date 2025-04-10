@@ -16,7 +16,7 @@ A ported version of this project is also available in Rust: <https://github.com/
 
 ## Dependencies
 
-You may need Microsoft Visual C++ Redistributable.
+You may need Microsoft Visual C++ Redistributable to use `ReversiAiDll.dll`.
 
 - KERNEL32.dll
 - MSVCP140.dll
