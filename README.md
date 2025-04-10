@@ -9,8 +9,8 @@ A ported version of this project is also available in Rust: <https://github.com/
 
 ## Features
 
-- Simple API
-- Callable from C# easily
+- Simple API using only primitive types for effortless FFI
+- Easily callable from C#, Python, etc.
 - Multithread supported
 - Moderate AI Strength
 
